@@ -23,8 +23,8 @@ mod greet_should {
 
 pub fn greet(name: String) -> String {
     if name.is_empty() {
-        "Hello, world!".to_owned()
-    } else {
-        "Hello, Oliver!".to_owned()
+        return "Hello, world!".to_owned();
     }
+
+    "Hello, Oliver!".to_owned()
 }
