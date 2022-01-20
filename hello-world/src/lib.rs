@@ -4,9 +4,11 @@ mod greet_should {
 
     #[test]
     fn return_hello_world_with_name_arg_empty_string() {
-        let _expected = "Hello, world!".to_owned();
+        let expected = "Hello, world!".to_owned();
 
-        let _actual = greet("".to_owned());
+        let actual = greet("".to_owned());
+
+        assert_eq!(actual, expected);
     }
 }
 
