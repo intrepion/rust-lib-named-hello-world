@@ -1,8 +1,9 @@
 #[cfg(test)]
-mod tests {
+mod greet_should {
     #[test]
-    fn it_works() {
-        let result = 2 + 2;
-        assert_eq!(result, 4);
+    fn return_hello_world_with_name_arg_empty_string() {
+        let expected = "Hello, world!";
+
+        let actual = greet("");
     }
 }
