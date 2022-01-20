@@ -12,6 +12,6 @@ mod greet_should {
     }
 }
 
-pub fn greet(name: String) -> String {
-    name
+pub fn greet(_name: String) -> String {
+    "Hello, world!".to_owned()
 }
