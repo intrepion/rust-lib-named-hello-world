@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Clippy
+    - name: Lint
       run: cd hello-world && cargo clippy -- -D warnings
   test:
     runs-on: ubuntu-latest
@@ -46,8 +46,12 @@ jobs:
     - name: Install latest nightly
       uses: actions-rs/toolchain@v1
       with:
-          toolchain: nightly
-          components: cargo-udeps
+        toolchain: nightly
+    - name: "Udeps Installation"
+      uses: actions-rs/cargo@v1
+      with:
+        command: install
+        args: cargo-udeps --locked
     - uses: actions/checkout@v2
-    - name: Audit
+    - name: Unused
       run: cd hello-world && cargo +nightly udeps
