@@ -10,10 +10,20 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  build:
-
+  format:
     runs-on: ubuntu-latest
-
+    steps:
+    - uses: actions/checkout@v2
+    - name: Format
+      run: cd hello-world && cargo fmt -- --check
+  check:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Check
+      run: cd hello-world && cargo check
+  clippy:
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Install latest stable
@@ -22,13 +32,17 @@ jobs:
           toolchain: stable
           override: true
           components: clippy
-    - name: Format
-      run: cd hello-world && cargo fmt -- --check
-    - name: Check
-      run: cd hello-world && cargo check
     - name: Clippy
       run: cd hello-world && cargo clippy -- -D warnings
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
     - name: Test
       run: cd hello-world && cargo test --verbose
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
     - name: Audit
       run: cd hello-world && cargo audit
