@@ -21,7 +21,7 @@ jobs:
       with:
           toolchain: stable
           override: true
-          components: audit, clippy, rustfmt
+          components: clippy, rustfmt
     - name: Format
       run: cd hello-world && cargo fmt -- --check
     - name: Check
