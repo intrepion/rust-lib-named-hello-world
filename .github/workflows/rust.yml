@@ -26,12 +26,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Install latest stable
-      uses: actions-rs/toolchain@v1
-      with:
-          toolchain: stable
-          override: true
-          components: clippy
     - name: Clippy
       run: cd hello-world && cargo clippy -- -D warnings
   test:
