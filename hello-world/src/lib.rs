@@ -35,5 +35,5 @@ pub fn greet(name: String) -> String {
         return "Hello, world!".to_owned();
     }
 
-    "Hello, Oliver!".to_owned()
+    format!("Hello, {name}!")
 }
