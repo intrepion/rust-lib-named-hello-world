@@ -27,8 +27,8 @@ jobs:
     - name: Check
       run: cd hello-world && cargo check
     - name: Clippy
-      run: cd hello-world && cargo check
+      run: cd hello-world && cargo clippy -- -D warnings
     - name: Test
       run: cd hello-world && cargo test --verbose
     - name: Audit
-      run: cd hello-world && cargo check
+      run: cd hello-world && cargo audit
