@@ -16,9 +16,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Install latest stable
+      uses: actions-rs/toolchain@v1
+      with:
+          toolchain: stable
+          override: true
+          components: clippy, rustfmt
     - name: Format
       run: cd hello-world && cargo fmt -- --check
     - name: Check
       run: cd hello-world && cargo check
-    - name: Run tests
+    - name: Clippy
+      run: cd hello-world && cargo check
+    - name: Test
       run: cd hello-world && cargo test --verbose
