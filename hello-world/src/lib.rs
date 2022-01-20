@@ -40,6 +40,8 @@ mod greet_should {
 }
 
 pub fn greet(name: String) -> String {
+    let name = name.trim();
+
     if name.is_empty() {
         return "Hello, world!".to_owned();
     }
